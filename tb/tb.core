@@ -1,0 +1,19 @@
+CAPI=2:
+name: "bhanu:soc:tb"
+description: "Ibex SoC testbench: RTL plus the DV libraries the testbench needs"
+
+filesets:
+  files_tb:
+    depend:
+      - bhanu:soc:soc_top
+      - lowrisc:dv:dv_base_reg
+      - bhanu:soc:uart_ral
+
+targets:
+  lint:
+    default_tool: verilator
+    filesets: [files_tb]
+    toplevel: soc_top
+    tools:
+      verilator:
+        mode: lint-only

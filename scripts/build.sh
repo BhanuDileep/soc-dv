@@ -10,9 +10,11 @@ rm -rf obj_tb
 verilator --binary --timing -j 0 -Wno-fatal --timescale 1ns/1ps \
   -DDISABLE_PRIM_CDC_RAND_DELAY \
   --trace-fst --trace-structs \
-  +define+UVM_NO_DPI \
+  +define+UVM_NO_DPI +define+UVM \
   +incdir+$HOME/uvm-core/src \
   +incdir+$TB/agents/dbus +incdir+$TB/agents/uart +incdir+$TB/agents/gpio +incdir+$TB/env +incdir+$TB/tests \
+  $HOME/uvm-core/src/uvm_pkg.sv \
+  $TB/ral/uvm12_compat.svh \
   -f $HOME/soc-dv/build/tb.vc \
   $HOME/uvm-core/src/uvm_pkg.sv \
   $TB/agents/dbus/ib_dbus_if.sv \
