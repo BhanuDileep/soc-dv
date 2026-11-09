@@ -1,0 +1,40 @@
+CAPI=2:
+name: "bhanu:soc:soc_top:0.1"
+description: "Ibex SoC with a TL-UL fabric and OpenTitan peripherals"
+
+filesets:
+  files_rtl:
+    depend:
+      - lowrisc:ibex:ibex_top_tracing
+      - lowrisc:tlul:adapter_host
+      - lowrisc:tlul:adapter_sram
+      - lowrisc:tlul:socket_1n
+      - lowrisc:ip:tlul
+      - lowrisc:prim:mubi
+      - lowrisc:prim_generic:all
+      - lowrisc:ip:uart
+      - lowrisc:ibexsoc_ip:gpio
+      - lowrisc:ibexsoc_ip:rv_plic
+    files:
+      - /Users/bhanudileepreddymaryada/soc-dv/rtl/soc_addr_decode.sv
+      - /Users/bhanudileepreddymaryada/soc-dv/rtl/soc_ram_2p.sv
+      - /Users/bhanudileepreddymaryada/soc-dv/rtl/simulator_ctrl.sv
+      - /Users/bhanudileepreddymaryada/soc-dv/rtl/timer.sv
+      - /Users/bhanudileepreddymaryada/soc-dv/rtl/soc_top.sv
+    file_type: systemVerilogSource
+
+targets:
+  default: &default_target
+    filesets:
+      - files_rtl
+    toplevel: soc_top
+
+  lint:
+    <<: *default_target
+    default_tool: verilator
+    tools:
+      verilator:
+        mode: lint-only
+        verilator_options:
+          - "-Wall"
+          - "-Wno-fatal"

@@ -1,0 +1,10 @@
+{
+  instance_name: "rv_plic",
+  param_values: {
+    topname: "ibexsoc",
+    src: 42,
+    target: 1,
+    prio: 7,
+    module_instance_name: "rv_plic"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  instance_name: "gpio",
+  param_values: {
+    topname: "ibexsoc",
+    module_instance_name: "gpio",
+    per_pin_view: false,
+    num_inp_period_counters: 0
+  }
+}
