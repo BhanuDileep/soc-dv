@@ -110,6 +110,13 @@ run_test soc_concurrent_test@soc_concurrent_test \
   "UVM_FATAL :    0" \
   "!TEST FAILED" "!EXCEPTION" "!TIMEOUT" "!ERROR:"
 
+run_test uart_reg_test \
+  "TEST PASSED" \
+  "Terminating simulation by software request" \
+  "UVM_ERROR :    0" \
+  "UVM_FATAL :    0" \
+  "!TEST FAILED" "!EXCEPTION" "!TIMEOUT" "!ERROR:"
+
 echo "----"
 echo "PASSED: $pass   FAILED: $fail"
 [ $fail -eq 0 ]
