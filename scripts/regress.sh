@@ -117,6 +117,15 @@ run_test uart_reg_test \
   "UVM_FATAL :    0" \
   "!TEST FAILED" "!EXCEPTION" "!TIMEOUT" "!ERROR:"
 
+for t in gpio_reg_test plic_reg_test; do
+  run_test $t \
+    "TEST PASSED" \
+    "Terminating simulation by software request" \
+    "UVM_ERROR :    0" \
+    "UVM_FATAL :    0" \
+    "!TEST FAILED" "!EXCEPTION" "!TIMEOUT" "!ERROR:"
+done
+
 echo "----"
 echo "PASSED: $pass   FAILED: $fail"
 [ $fail -eq 0 ]
