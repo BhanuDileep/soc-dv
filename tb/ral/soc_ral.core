@@ -1,0 +1,18 @@
+CAPI=2:
+name: "bhanu:soc:soc_ral"
+description: "SoC-level register block: UART, GPIO and PLIC models at their base addresses"
+
+filesets:
+  files_dv:
+    depend:
+      - bhanu:soc:uart_ral
+      - bhanu:soc:gpio_ral
+      - bhanu:soc:rv_plic_ral
+    files:
+      - soc_ral_pkg.sv
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets:
+      - files_dv

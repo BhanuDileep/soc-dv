@@ -8,6 +8,10 @@ filesets:
       - bhanu:soc:soc_top
       - lowrisc:dv:dv_base_reg
       - bhanu:soc:uart_ral
+      - bhanu:soc:gpio_ral
+      - bhanu:soc:rv_plic_ral
+      - bhanu:soc:soc_top
+      - bhanu:soc:soc_ral
 
 targets:
   lint:
